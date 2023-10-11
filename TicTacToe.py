@@ -8,3 +8,15 @@ def display_board(board) :
 test_board = ['#','X','O','X','O','X','O','X','O','X']
 display_board(test_board)
 
+def player_input():
+    marker = ''
+    while marker not in ['X', 'O']:
+        marker = input("Player 1: Enter your marker X or O: ").upper()
+    
+    player1 = marker
+    if player1 == 'X':
+        player2 = 'O'
+    else:
+        player2 = 'X'
+    return (player1, player2)
+
