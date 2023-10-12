@@ -41,3 +41,23 @@ def choose_first():
         return 'Player 1'
     else: 
         return 'Player 2'
+
+def space_check(board, position):
+    return board[position] == ' '
+
+def full_board_check(board):
+    for i in range(1,10):
+        if space_check(board, i):
+            return False
+    return True
+
+def player_choice(board):
+    position = 0
+    while position not in range(1,10) or not space_check(board, position):
+        position = int(input("Enter your next position: "))
+    return position
+
+def replay():
+    choice = input('Want to play again? Type yes or no : ')
+
+    return choice == 'yes'
