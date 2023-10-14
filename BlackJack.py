@@ -114,3 +114,51 @@ def hit_or_stand(deck,hand):
             continue
             
         break
+
+def show_some(player,dealer):
+    
+    #Show only ONE of the dealer's cards
+    print("\n Dealer's Hand: ")
+    print("First card hidden!")
+    print(dealer.cards[1])
+    
+    #Show all (2 cards) of the player's cards
+    print("\n Player's Hand: ")
+    for card in player.cards:
+        print(card)
+    
+def show_all(player,dealer):
+    
+    #Show all (@ cards) of the player's cards
+    print("\n Dealer's Hand: ")
+    for card in dealer.cards:
+        print(card)
+         
+    #calculate and display the value
+    print(f"The value of the Dealer's hand is {dealer.value}")
+    
+    
+    #show all the player's cards
+    print("\n Player's Hand: ")
+    for card in player.cards:
+        print(card)
+    print(f"The value of the Player's hand is {player.value}")
+
+def player_busts(player, dealer, chips):
+    print("BUST PLAYER!")
+    chips.lose_bet()
+
+def player_wins(player, dealer, chips):
+    print("PLAYER WON!")
+    chips.win_bet()
+
+def dealer_busts(player, dealer, chips):
+    print("PLAYER WINS! DEALER BUSTED")
+    chips.win_bet()
+    
+def dealer_wins(player, dealer, chips):
+    print("DEALER WINS! PLAYER BUSTED")
+    chips.lose_bet()
+    
+def push(player, dealer):
+    print("Dealer and Player tie! PUSH!")
