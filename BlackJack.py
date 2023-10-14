@@ -63,3 +63,30 @@ class Hand:
         while self.value > 21 and self.aces:
             self.value -= 10
             self.aces -= 1
+
+class Chips:
+    
+    def __init__(self, total = 100):
+        self.total = total  # This can be set to a default value or supplied by a user input
+        self.bet = 0
+        
+    def win_bet(self):
+        self.total += self.bet
+    
+    def lose_bet(self):
+        self.total -= self.bet
+        
+
+def take_bet(chips):
+    while True:
+        try:
+            chips.bet = int(input("How many chips would you want to bet?"))
+            
+        except:
+            print("Sorry, please provide an integer.")
+            
+        else:
+            if chips.bet > chips.total:
+                print("Sorry! You do not have enough chips. You have {} chips".format(chips.total))
+            else:
+                break
