@@ -75,7 +75,7 @@ class Chips:
     
     def lose_bet(self):
         self.total -= self.bet
-        
+
 
 def take_bet(chips):
     while True:
@@ -90,3 +90,27 @@ def take_bet(chips):
                 print("Sorry! You do not have enough chips. You have {} chips".format(chips.total))
             else:
                 break
+
+def hit(deck,hand):
+    single_card = deck.deal()
+    hand.add_card(single_card)
+    hand.adjust_for_ace()
+
+def hit_or_stand(deck,hand):
+    global playing  # to control an upcoming while loop
+    
+    while True:
+        x = input("Hit or Stand? Enter h or s: ")
+        
+        if x[0].lower() == 'h':
+            hit(deck, hand)
+            
+        elif x[0].lower() == 's':
+            print("Player Stands, Dealer's turn")
+            playing = False
+            
+        else:
+            print("Sorry I did not understand that. Please enter h or s only!")
+            continue
+            
+        break
