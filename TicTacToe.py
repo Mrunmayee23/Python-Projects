@@ -39,7 +39,7 @@ def choose_first():
     flip = random.randint(0,1)
     if flip == 0:
         return 'Player 1'
-    else: 
+    else:   
         return 'Player 2'
 
 def space_check(board, position):
@@ -63,7 +63,7 @@ def replay():
     return choice == 'yes'
 
 
-print('Welcome to Tic Tac Toe!')
+print('Welcome to Tic Tac Toe!!!')
 while True:
     the_board = [' '] * 10
 
